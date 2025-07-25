@@ -93,6 +93,24 @@ public class BillPrint {
         System.out.println("|                       |  Price           |     " + finalPrice + "       |");
         System.out.println("+-------------------------------------------------------------+");
 
+        double netAmount=finalPrice;
+
+
+
+        System.out.println("Please Enter your Cash");
+        double cash=input.nextDouble();
+
+        double change=cash-netAmount;
+
+
+        System.out.println("+-----------------------+--------------------------------------");
+        System.out.println("|       Net Amount      |"+"   "+netAmount+"                 |");
+        System.out.println("+-----------------------+--------------------------------------");
+        System.out.println("|       Cash            |"+"   "+cash+"                 |");
+        System.out.println("+-----------------------+--------------------------------------");
+        System.out.println("|       Change          |"+"   "+change+"                  |");
+        System.out.println("+-----------------------+--------------------------------------");
+
     }
 
 }
