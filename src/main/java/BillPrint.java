@@ -96,7 +96,6 @@ public class BillPrint {
         double netAmount=finalPrice;
 
 
-
         System.out.println("Please Enter your Cash");
         double cash=input.nextDouble();
 
@@ -111,6 +110,47 @@ public class BillPrint {
         System.out.println("|       Change          |"+"   "+change+"                  |");
         System.out.println("+-----------------------+--------------------------------------");
 
+
+        // Convert change to int for breakdown
+        int cAmount = (int) change;
+
+        // Currency breakdown
+        int n5000 = cAmount / 5000; cAmount %= 5000;
+        int n2000 = cAmount / 2000; cAmount %= 2000;
+        int n1000 = cAmount / 1000; cAmount %= 1000;
+        int n500 = cAmount / 500; cAmount %= 500;
+        int n100 = cAmount / 100; cAmount %= 100;
+        int n50 = cAmount / 50; cAmount %= 50;
+        int n20 = cAmount / 20; cAmount %= 20;
+        int n10 = cAmount / 10; cAmount %= 10;
+
+        int c5 = cAmount / 5; cAmount %= 5;
+        int c2 = cAmount / 2; cAmount %= 2;
+        int c1 = cAmount;
+
+        int noNotes = n5000 + n2000 + n1000 + n500 + n100 + n50 + n20 + n10;
+        int noCoins = c5 + c2 + c1;
+
+        // Currency note and coin breakdown print
+        System.out.println("\n========== Currency Breakdown ==========");
+        System.out.printf("| %-10s | %4s |\n", "Value", "No");
+        System.out.println("+--------------+------+");
+        System.out.printf("| Rs.5000      | %4d |\n", n5000);
+        System.out.printf("| Rs.2000      | %4d |\n", n2000);
+        System.out.printf("| Rs.1000      | %4d |\n", n1000);
+        System.out.printf("| Rs.500       | %4d |\n", n500);
+        System.out.printf("| Rs.100       | %4d |\n", n100);
+        System.out.printf("| Rs.50        | %4d |\n", n50);
+        System.out.printf("| Rs.20        | %4d |\n", n20);
+        System.out.printf("| Rs.10        | %4d |\n", n10);
+        System.out.printf("| Rs.5         | %4d |\n", c5);
+        System.out.printf("| Rs.2         | %4d |\n", c2);
+        System.out.printf("| Rs.1         | %4d |\n", c1);
+        System.out.println("+--------------+------+");
+        System.out.printf("| Notes Total  | %4d |\n", noNotes);
+        System.out.printf("| Coins Total  | %4d |\n", noCoins);
+        System.out.println("+--------------+------+");
+        System.out.println("\n       THANK YOU FOR SHOPPING WITH US!");
     }
 
 }
